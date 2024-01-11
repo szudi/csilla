@@ -1,0 +1,132 @@
+:root {
+  --main-color: #ff0088;
+  --secondary-color: #00ff88;
+}
+html {
+  font: normal 400 16px/1.618034 'Slabo 13px', serif;
+  font-size: 16px;
+  font-size: calc(10px + .5vw);
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  color: #000;
+}
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Bevan', serif;
+  font-weight: 400;
+}
+h2,b {
+  font-family: 'Sora', sans-serif;
+}
+h2 {
+  font-weight: 600;
+  letter-spacing: -.05ex;
+}
+b {
+  font-weight: 800;
+  letter-spacing: -.03ex;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+.vh {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
