@@ -1,6 +1,7 @@
 :root {
   --main-color: #ff0088;
   --secondary-color: #00ff88;
+  --yellow-pale: #eeff88;
 }
 html {
   font: normal 400 16px/1.618034 'Slabo 13px', serif;
@@ -11,7 +12,16 @@ html {
   color: #000;
 }
 body {
+}
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -56,7 +66,41 @@ b {
   width: 1px;
 }
 
-
+h1 {
+  font-size: 6rem;
+  color: var(--main-color);
+  color: color-mix(in srgb, var(--main-color) 80%, var(--yellow-pale) 20%);
+  color: var(--yellow-pale);
+  position: relative;
+  top: -4rem;
+}
+h1::after {
+  content: attr(title);
+  color: var(--yellow-pale);
+  color: var(--main-color);
+  mix-blend-mode: hard-light;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(-1deg);
+}
+#page-header {
+  border-right: 1rem solid var(--main-color);
+}
+#page-header div, #header-gallery {
+  display: flex;
+}
+#page-header div div {
+  flex-direction: column;
+}
+#header-gallery a {
+  flex: 1;
+}
+.lang {
+  position: absolute;
+  right: 2rem;
+}
 
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
