@@ -12,6 +12,7 @@ html {
   color: #000;
 }
 body {
+  background: #fff;
 }
 img {
   display: block;
@@ -34,6 +35,9 @@ h2,b {
 h2 {
   font-weight: 600;
   letter-spacing: -.05ex;
+}
+a {
+  text-decoration: none;
 }
 b {
   font-weight: 800;
@@ -87,6 +91,7 @@ h1 {
   margin-bottom: -4vw;
   text-align: right;
   margin-right: 6vw;
+
   @media (max-width: 640px) {
     font-size: 10.5vw;
     top: 0;
@@ -96,7 +101,6 @@ h1 {
 }
 h1::after {
   content: attr(title);
-  color: var(--yellow-pale);
   color: var(--main-color);
   mix-blend-mode: hard-light;
   pointer-events: none;
@@ -104,6 +108,15 @@ h1::after {
   right: 0;
   top: 0;
   transform: rotate(-1deg);
+  transition: .2s cubic-bezier(.1, -5, 1, 5);
+}
+a:is(:hover, :focus-visible) h1 {
+  color: var(--secondary-color);
+}
+a:is(:hover, :focus-visible) h1::after {
+transform: rotate(1deg);
+
+
 }
 #page-header div, #page-header {
   display: flex;
