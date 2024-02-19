@@ -29,7 +29,7 @@ h1 {
   font-family: 'Bevan', serif;
   font-weight: 400;
 }
-h2,b {
+h2,b,.home {
   font-family: 'Sora', sans-serif;
 }
 h2 {
@@ -78,7 +78,14 @@ a img {
 a:is(:hover, :focus-visible) img {
   opacity: 70%;
   filter: brightness(.7) contrast(1.3);
-} 
+}
+.hu, html[lang="hu"] .en {display: none;}
+html[lang="hu"] .hu {display: block;}
+
+#page-header h2.hu {display: none;}
+#page-header h2.en {display: flex;}
+html[lang="hu"] #page-header h2.en {display: none;}
+html[lang="hu"] #page-header h2.hu {display: flex;}
 
 h1 {
   font-size: 8vw;
@@ -105,7 +112,7 @@ h1::after {
   mix-blend-mode: hard-light;
   pointer-events: none;
   position: absolute;
-  right: 0;
+  right: 4px;
   top: 0;
   transform: rotate(-1deg);
   transition: .2s cubic-bezier(.1, -5, 1, 5);
@@ -150,7 +157,7 @@ transform: rotate(1deg);
       margin-left: 4vw;
   }
 }
-#page-header h2 {
+h2 {
   color: var(--main-color);
   display: flex;
   gap: 1em;
@@ -295,3 +302,57 @@ transform: rotate(1deg);
   }
 }
 
+#gallery {
+  columns: 2;
+  gap: 1ex;
+  margin-bottom: 2rem;
+}
+#gallery img {
+  margin-bottom: 1ex;
+}
+.home {
+  color: var(--main-color);
+  padding: 1ex 2rem 1ex 0;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin: 2rem 0;
+  border-radius: 0 2rem 2rem 0;
+}
+.home span {
+  font-size: 4rem;
+  line-height: 0;
+  position: relative;
+  top: -4px;
+  left: 0;
+  transition: left ease-in .666s;
+}
+.home:is(:hover,:focus-visible) {
+  color: var(--yellow-pale);
+  background: var(--main-color);
+}
+.home:is(:hover, :focus-visible) span {
+  left: -2rem;
+}
+
+body.item #page-header {
+  border-top: .5rem solid var(--main-color);
+  padding-bottom: 0;
+}
+body.item #page-header div {
+  display: block;
+}
+
+body.item #page-header :is(h2,.description) {
+
+  margin: 1rem auto;
+  max-width: min(72ch, 88vw);
+  position: relative;
+  left: 1rem;
+
+  @media (min-width: 880px) {
+  margin: 1rem 0;
+  left: 20vw;
+  }
+
+}
