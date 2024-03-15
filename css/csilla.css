@@ -82,10 +82,10 @@ a:is(:hover, :focus-visible) img {
 .hu, html[lang="hu"] .en {display: none;}
 html[lang="hu"] .hu {display: block;}
 
-#page-header h2.hu {display: none;}
-#page-header h2.en {display: flex;}
-html[lang="hu"] #page-header h2.en {display: none;}
-html[lang="hu"] #page-header h2.hu {display: flex;}
+body:not(.item) #page-header h2.hu {display: none;}
+body:not(.item) #page-header h2.en {display: flex;}
+html[lang="hu"] body:not(.item) #page-header h2.en {display: none;}
+html[lang="hu"] body:not(.item) #page-header h2.hu {display: flex;}
 
 h1 {
   font-size: 8vw;
@@ -159,25 +159,20 @@ transform: rotate(1deg);
 }
 h2 {
   color: var(--main-color);
-  display: flex;
-  gap: 1em;
   font-size: min(2.5rem, 2.5vw);
   margin-bottom: 2.5vw;
+}
+body:not(.item) h2 {
+  display: flex;
+  gap: 1em;
   @media (min-width: 1025px) {
-    justify-content: space-between;
-  }
+      justify-content: space-between;
+    }
+  
   @media (max-width: 640px) {
     font-size: 5vw;
     justify-content: space-around;
   }
-}
-h2 .meta {
-  font-size: 1rem;
-  position: absolute;
-  margin: 2.5rem 0 0 1rem;
-}
-h2:has(.meta) {
-  padding-bottom: 1rem;
 }
 #page-header div div {
   flex-direction: column;
@@ -354,7 +349,6 @@ body.item #page-header div {
 }
 
 body.item #page-header :is(h2,.description) {
-
   margin: 1rem auto;
   max-width: min(56ch, 88vw);
   position: relative;
@@ -364,5 +358,9 @@ body.item #page-header :is(h2,.description) {
   margin: 1rem 0;
   left: 20vw;
   }
-
+}
+.meta {
+  font-size: 1rem;
+  display: block;
+  line-height: 1.31;
 }
