@@ -311,6 +311,9 @@ body:not(.item) h2 {
   margin-bottom: 2rem;
   background: linear-gradient(135deg,#ddd,#fff);
 }
+#gallery.nocols {
+  columns: auto;
+}
 #gallery img {
   margin-bottom: 1ex;
 }
