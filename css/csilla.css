@@ -6,13 +6,15 @@
 html {
   font: normal 400 16px/1.618034 'Slabo 13px', serif;
   font-size: 16px;
-  font-size: max(calc(11px + .6vw), 13px);
+  font-size: max(calc(11px + .6vw), 14px);
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   color: #000;
+  scroll-behavior: smooth;
 }
 body {
   background: #fff;
+  scroll-behavior: smooth;
 }
 img {
   display: block;
@@ -38,6 +40,10 @@ h2 {
 }
 a {
   text-decoration: none;
+  color: var(--main-color);
+}
+a:is(:hover, :focus-visible) {
+  color: color-mix(in srgb, var(--secondary-color), #000);
 }
 b {
   font-weight: 800;
@@ -249,55 +255,19 @@ body:not(.item) h2 {
   *::after {
     background: #fff !important;
     color: #000 !important;
-    /* Black prints faster */
     box-shadow: none !important;
     text-shadow: none !important;
   }
-
   a,
   a:visited {
     text-decoration: underline;
   }
-
-  a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
-
   h2,
   h3 {
     page-break-after: avoid;
@@ -366,4 +336,42 @@ body.item #page-header :is(h2,.description) {
   font-size: 1rem;
   display: block;
   line-height: 1.31;
+}
+#educator>div {
+  margin-top: 4px;
+  display: grid;
+  font-weight: 900;
+  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
+  justify-items: center;
+  background: color-mix(in srgb, var(--yellow-pale) 6%, #eee);
+  border-right: 2rem solid var(--main-color);
+}
+#educator img {
+  object-fit: cover;
+}
+#educator p {
+  padding: 4vmin;
+  max-width: 64ch;
+  grid-column: span 2;
+}
+#educator p a {
+  display: block;
+  font-family: 'Sora', sans-serif;
+}
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 2rem;
+  gap: 2rem;
+}
+.contacts a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.contacts svg {
+  width: 4rem;
+  fill: currentColor;
 }
