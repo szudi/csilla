@@ -15,3 +15,12 @@ if (navigator.language.includes("hu")) {
 }
 document.querySelector(".lang.hu").onclick = () => {document.querySelector("html").lang = "en"; document.title = entitle;}
 document.querySelector(".lang.en").onclick = () => {document.querySelector("html").lang = "hu"; document.title = hutitle;}
+
+
+const txts = document.querySelectorAll("p.hu");
+txts.forEach((txt) => {
+    txt.innerHTML = txt.innerHTML.replace(/( a )/g,' a\xa0');
+    txt.innerHTML = txt.innerHTML.replace(/( az )/g,' az\xa0');
+    txt.innerHTML = txt.innerHTML.replace(/(A )/g,'A\xa0');
+    txt.innerHTML = txt.innerHTML.replace(/(Az )/g,'Az\xa0');
+});
