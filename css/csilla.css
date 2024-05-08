@@ -275,11 +275,13 @@ body:not(.item) h2 {
 }
 
 #gallery {
-  columns: 2;
-  gap: 1ex;
   padding: 1ex 0;
   margin-bottom: 2rem;
   background: linear-gradient(135deg,#ddd,#fff);
+  @media (min-width: 800px) {
+    columns: 2;
+    gap: 1ex;
+  }
 }
 #gallery.nocols {
   columns: auto;
