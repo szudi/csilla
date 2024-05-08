@@ -278,7 +278,7 @@ body:not(.item) h2 {
   padding: 1ex 0;
   margin-bottom: 2rem;
   background: linear-gradient(135deg,#ddd,#fff);
-  @media (min-width: 800px) {
+  @media (min-width: 840px) {
     columns: 2;
     gap: 1ex;
   }
